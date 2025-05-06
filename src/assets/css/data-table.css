@@ -1,0 +1,185 @@
+@import url('./root.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+body {
+    background: linear-gradient(135deg, var(--blue-light), var(--purple));
+    min-height: 100vh;
+    padding: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: black;
+}
+
+.table-container {
+    width: 100%;
+    max-width: 90rem;
+    min-height: 70rem;
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    margin: 4rem;
+    border-radius: 2rem;
+    box-shadow: var(--shadow-soft);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    animation: fadeIn 0.6s ease-in-out;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+}
+
+.table-title {
+    margin-top: 2rem;
+    text-align: center;
+    font-size: 3rem;
+    color: var(--white);
+    font-weight: bold;
+}
+
+.data-table {
+    width: 100%;
+    max-width: 78rem;
+    border-collapse: collapse;
+    border-radius: 1rem;
+    overflow: hidden;
+    box-shadow: var(--shadow-soft);
+}
+
+.data-table th {
+    text-align: center;
+}
+
+.data-table td {
+    text-align: left;
+}
+
+.data-table th,
+.data-table td {
+    padding: 1.6rem;
+    font-size: 1.4rem;
+}
+
+.data-table thead {
+    background-color: var(--purple);
+    color: var(--white);
+}
+
+.data-table tbody tr {
+    background-color: var(--white);
+    transition: background-color 0.3s ease;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.data-table tbody tr:hover {
+    background-color: var(--dark-gray);
+}
+
+.action-buttons {
+    display: flex;
+    gap: 1rem;
+}
+
+.btn {
+    border: none;
+    padding: 0.8rem 1.6rem;
+    border-radius: 0.8rem;
+    font-size: 1.3rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-soft);
+}
+
+.btn-edit {
+    background-color: var(--yellow);
+    color: black;
+}
+
+.btn-delete {
+    background-color: var(--red);
+    color: white;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(2rem);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media screen and (min-width:350px) and (max-width: 730px) {
+
+    .table-container {
+        max-width: 55rem;
+    }
+    .data-table {
+        display: flex;
+        padding-left: 3rem;
+        padding-right: 3rem;
+    }
+
+    .data-table thead {
+        display: none;
+    }
+
+     .data-table tbody, .data-table tr, .data-table td {
+        display: block;
+        width: 100%;
+    }
+
+    .data-table tr {
+        margin-bottom: 1.6rem;
+        box-shadow: var(--shadow-soft);
+        border-radius: 1rem;
+        background-color: var(--white);
+        overflow: hidden;
+    }
+
+    .data-table td {
+        padding: 1.2rem;
+        text-align: right;
+        position: relative;
+    }
+
+    .data-table tr {
+        max-width: 47rem;
+    }
+
+    .data-table td::before {
+        content: attr(data-label);
+        position: absolute;
+        left: 1.2rem;
+        font-weight: bold;
+        color: var(--gray);
+        text-align: left;
+    }
+
+    .action-buttons {
+        margin-top: 3rem;
+        justify-content: center;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+}
